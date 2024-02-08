@@ -1,10 +1,10 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import TorchAni from "./pages/TorchAni/TorchAni";
+import Splash_screen from "./pages/Splash_screen/Splash_screen";
 
 function App() {
   return (
     <BrowserRouter>
-    <TorchAni/>
+    <Splash_screen/>
         <Routes>
 
         </Routes>   

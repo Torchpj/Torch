@@ -1,4 +1,5 @@
 body { background-color: black; }
+.torposition { display: flex; justify-content: center; }
 .tor { animation: 5s ease-in-out loadEffect1; }
 .tortext {color: #61ECFF; font-size: xx-large; font-weight: bolder;}
 

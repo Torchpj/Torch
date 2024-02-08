@@ -1,6 +1,6 @@
 import { useNavigate } from "react-router-dom";
 import { Torch } from "../../assets";
-import "./TorchAni.css"
+import "./Splash_screen.css"
 
 export default function TorchAni() {
 
@@ -9,7 +9,9 @@ export default function TorchAni() {
 
     return (
         <>
-        <Torch className="tor"/>
+        <div className="torposition"> 
+            <Torch className="tor"/>
+        </div>        
             <span className="tortext">  Torch </span>
         </>
     );
