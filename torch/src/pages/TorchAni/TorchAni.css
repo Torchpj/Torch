@@ -1,0 +1,12 @@
+body { background-color: black; }
+.tor { animation: 5s ease-in-out loadEffect1; }
+.tortext {color: #61ECFF; font-size: xx-large; font-weight: bolder;}
+
+@keyframes loadEffect1 {
+    0%{
+        opacity: 0;
+    }
+    100%{
+        opacity: 1;
+    }
+}
