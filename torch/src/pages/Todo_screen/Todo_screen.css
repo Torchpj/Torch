@@ -1,0 +1,99 @@
+.title {
+  font-size: 36px;
+  text-align: center;
+  color: #61ecff;
+}
+.listtext {
+  font-size: 24px;
+  color: #61ecff;
+}
+.listitem {
+  list-style: none;
+  list-style-type: none;
+}
+.inputtext {
+  font-size: 24px;
+  color: #61ecff;
+  text-align: center;
+  list-style: none;
+  outline: none;
+  background-color: #171a1a;
+  border: none;
+}
+.buttontext {
+  font-size: 40px;
+  color: #61ecff;
+}
+.listbutton {
+  display: flex;
+  padding: 24px;
+  margin-bottom: 22px;
+
+  width: 290px;
+  height: 50px;
+
+  background: #171a1a;
+  box-shadow: 8px 8px 16px #263140, -8px -8px 16px #394960;
+  border-radius: 24px;
+
+  /* Inside auto layout */
+  align-items: center;
+}
+.addButton {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  padding: 24px;
+  gap: 8px;
+
+  width: 82px;
+  height: 82px;
+
+  background: #171a1a;
+  box-shadow: 8px 8px 16px #263140, -8px -8px 16px #394960;
+  border-radius: 1e11px;
+
+  /* Inside auto layout */
+  flex: none;
+  order: 1;
+  align-self: stretch;
+  flex-grow: 1;
+  z-index: 1;
+}
+
+/*toggle switch*/
+.ToggleContainer {
+  position: relative;
+  margin-top: 8rem;
+  left: 47%;
+  cursor: pointer;
+}
+
+.toggle-container {
+  width: 50px;
+  height: 24px;
+  border-radius: 30px;
+  background-color: rgb(233, 233, 234);
+}
+
+.toggle--checked {
+  background-color: rgb(0, 200, 102);
+  transition: 0.5s;
+}
+
+.toggle-circle {
+  position: absolute;
+  top: 1px;
+  left: 1px;
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  background-color: rgb(255, 254, 255);
+  transition: 0.5s;
+}
+
+.toggle--checked {
+  left: 27px;
+  transition: 0.5s;
+}
