@@ -1,0 +1,14 @@
+
+{
+  "name": "Torch App",
+  "description": "Torch chrome extensions.",
+  "version": "1.0",
+  "manifest_version": 3,
+  "action": {
+    "default_popup": "index.html"
+  },
+  "permissions":[
+    "storage"
+  ]
+
+}
