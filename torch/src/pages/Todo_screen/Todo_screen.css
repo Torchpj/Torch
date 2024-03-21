@@ -1,15 +1,38 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.titlecontainer {
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+}
 .title {
   font-size: 36px;
   text-align: center;
   color: #61ecff;
 }
+.titlebutton {
+  width: 44px;
+  height: 44px;
+  margin-left: 30px;
+  background: #171a1a;
+  box-shadow: 8px 8px 16px #263140, -8px -8px 16px #394960;
+  border-radius: 1e11px;
+}
 .listtext {
   font-size: 24px;
   color: #61ecff;
 }
-.listitem {
+.list-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-indent: 0;
   list-style: none;
   list-style-type: none;
+  padding-left: 0;
 }
 .inputtext {
   font-size: 24px;
@@ -26,9 +49,10 @@
 }
 .listbutton {
   display: flex;
+  flex-direction: row;
   padding: 24px;
   margin-bottom: 22px;
-
+  justify-content: space-between;
   width: 290px;
   height: 50px;
 
@@ -36,7 +60,6 @@
   box-shadow: 8px 8px 16px #263140, -8px -8px 16px #394960;
   border-radius: 24px;
 
-  /* Inside auto layout */
   align-items: center;
 }
 .addButton {
@@ -65,8 +88,6 @@
 /*toggle switch*/
 .ToggleContainer {
   position: relative;
-  margin-top: 8rem;
-  left: 47%;
   cursor: pointer;
 }
 
@@ -74,11 +95,13 @@
   width: 50px;
   height: 24px;
   border-radius: 30px;
-  background-color: rgb(233, 233, 234);
+  background-color: #d9d9d9;
+  box-shadow: inset 10px 10px 30px rgba(0, 0, 0, 0.35),
+    inset -15px -15px 30px #ffffff;
 }
 
 .toggle--checked {
-  background-color: rgb(0, 200, 102);
+  background-color: #61ecff;
   transition: 0.5s;
 }
 
@@ -89,11 +112,17 @@
   width: 22px;
   height: 22px;
   border-radius: 50%;
-  background-color: rgb(255, 254, 255);
+  background-color: #d9d9d9;
   transition: 0.5s;
+  box-shadow: 3px 3px 25px rgba(0, 0, 0, 0.4), -4px -4px 25px #ffffff,
+    inset 6px 6px 20px rgba(255, 255, 255, 0.8),
+    inset -6px -6px 20px rgba(0, 0, 0, 0.3);
 }
 
 .toggle--checked {
   left: 27px;
   transition: 0.5s;
+}
+.block {
+  display: inline-block;
 }

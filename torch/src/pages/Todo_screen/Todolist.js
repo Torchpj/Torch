@@ -4,12 +4,16 @@ import Toggle from "./Toggle";
 
 function TodoList({ todos }) {
   return (
-    <ul>
+    <ul className="list-container">
       {todos.map((todo, index) => (
-        <li key={index} className="listitem">
+        <li key={index}>
           <button className="listbutton">
-            <span className="listtext">{todo}</span>
-            <Toggle />
+            <div className="block">
+              <span className="listtext">{todo}</span>
+            </div>
+            <div className="block">
+              <Toggle />
+            </div>
           </button>
         </li>
       ))}
