@@ -1,6 +1,6 @@
 body { background-color: black; }
 .torposition { display: flex; margin-left: 50%; margin-bottom: -15%; margin-top: 20%;}
-.lig { animation: 5s ease-in-out loadEffect1; display: flex; justify-content: center;}
+.lig { animation: 3s ease-in-out loadEffect1; display: flex; justify-content: center;}
 .tortext {color: #61ECFF; font-size: 50px; 
     font-weight: bolder; margin-left: 30%; margin-top: -15%;}
 
