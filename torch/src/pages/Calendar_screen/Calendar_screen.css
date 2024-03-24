@@ -1,122 +1,125 @@
 .App {
-    text-align: center;
-  }
+  text-align: center;
+}
+
+body {
+  background-color: black;
+}
+
+/* Calendar.css */
+.container {
+  max-width: 400px; /* 최대 너비 설정 */
+  margin: 0 auto; /* 가운데 정렬 */
+  background-color: black;
+  color: skyblue;
   
-  body {
-    background-color: black;
-  }
-  
-  /* Calendar.css */
-  .container {
-    max-width: 400px; /* 최대 너비 설정 */
-    margin: 0 auto; /* 가운데 정렬 */
-    background-color: black;
-    color: skyblue;
-    
-  }
-  
-  .title {
-    margin-top: 20px; /* 제목과 캘린더 간격 설정 */
-    text-align: center;
-  }
-  
-  /* 달력 년월 표시 & 바꾸는 부분 */
-  #a {
-    display: flex;
-    justify-content: space-between;
-  }
-  
-  #month-year {
-    display: inline-block;
-  }
-  
-  #month-changer {
-    display: inline-block;
-  }
-  
-  .calendar-table {
-    display: table;
-    /* width: 100%; */
-    border-collapse: seperate;
-    border-spacing: 10px;
-  
-  }
-  
-  
-  #day {
-    display: table-row;
-  }
-  /* #day > div, .circle {
-    padding: 10px;
-    text-align: center;
-    width: calc(100% / 7);
-  } */
-  #day > div {
-    display: table-cell;
-    /* border-bottom: 1px solid skyblue; */
-    padding: 8.5px;
-  }
-  
-  .circle {
-    display: table-cell;
-    width: 20px;
-    height: 20px;
-    border-radius: 50%;
-    font-size: 1em;
-    color: 61ECFF;
-    border: 2px solid rgb(97, 236, 255);
-    text-align: center;
-    padding: 10px;
-  }
-  .clicked {
-    background-color: white;
-    color: rgb(97, 236, 255);
-  }
-  
-  #wrapper {
-    display: table-row;
-    border-width: 90%;
-  
-    /* mairgin: 10px; */
-    /* display: inline-block; */
-    /* justify-content: space-around; */
-  
-    /* max-width: 1170px; */
-  }
-  
-  
+}
+
+.title {
+  margin-top: 20px; /* 제목과 캘린더 간격 설정 */
+  text-align: center;
+}
+
+/* 달력 년월 표시 & 바꾸는 부분 */
+#a {
+  display: flex;
+  justify-content: space-between;
+}
+
+#month-year {
+  display: inline-block;
+}
+
+#month-changer {
+  display: inline-block;
+}
+
+.calendar-table {
+  display: table;
+  /* width: 100%; */
+  border-collapse: seperate;
+  border-spacing: 10px;
+
+}
+
+
+#day {
+  display: table-row;
+}
+/* #day > div, .circle {
+  padding: 10px;
+  text-align: center;
+  width: calc(100% / 7);
+} */
+#day > div {
+  display: table-cell;
+  /* border-bottom: 1px solid skyblue; */
+  padding: 8.5px;
+}
+
+.circle {
+  display: table-cell;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  font-size: 1em;
+  color: 61ECFF;
+  border: 2px solid rgb(97, 236, 255);
+  text-align: center;
+  padding: 10px;
+}
+.clicked {
+  background-color: white;
+  color: rgb(97, 236, 255);
+}
+
+#wrapper {
+  display: table-row;
+  border-width: 90%;
+
+  /* mairgin: 10px; */
+  /* display: inline-block; */
+  /* justify-content: space-around; */
+
+  /* max-width: 1170px; */
+}
+.tasks-container {
+  color: white; /* 흰색으로 글씨 색상 지정 */
+}
+
+
+.App-logo {
+  height: 40vmin;
+  pointer-events: none;
+}
+
+@media (prefers-reduced-motion: no-preference) {
   .App-logo {
-    height: 40vmin;
-    pointer-events: none;
+    animation: App-logo-spin infinite 20s linear;
   }
-  
-  @media (prefers-reduced-motion: no-preference) {
-    .App-logo {
-      animation: App-logo-spin infinite 20s linear;
-    }
+}
+
+.App-header {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.App-link {
+  color: #61dafb;
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
   }
-  
-  .App-header {
-    background-color: #282c34;
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    font-size: calc(10px + 2vmin);
-    color: white;
+  to {
+    transform: rotate(360deg);
   }
-  
-  .App-link {
-    color: #61dafb;
-  }
-  
-  @keyframes App-logo-spin {
-    from {
-      transform: rotate(0deg);
-    }
-    to {
-      transform: rotate(360deg);
-    }
-  }
-  
+}
+

@@ -26,6 +26,9 @@ function AddTodo({ onAdd }) {
     if (event.key === "Enter") {
       handleSubmit(event);
     }
+    if (event.key === " ") {
+      event.preventDefault();
+    }
   };
 
   return (
@@ -42,7 +45,7 @@ function AddTodo({ onAdd }) {
               type="text"
               value={inputValue}
               onChange={handleChange}
-              onKeyDown={handleKeyDown}
+              onKeyUp={handleKeyDown}
               className="inputtext"
             />
           </button>
