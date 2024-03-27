@@ -1,8 +1,10 @@
-import React, { useState } from 'react';
-import './Calendar_screen.css';
+import React, { useState } from "react";
+import "./Calendar_screen.css";
+import { GrPowerCycle } from "react-icons/gr";
+import { useHistory } from "react-router-dom";
 
-function CalendarScreen(){
-    const [date, setDate] = useState(new Date());
+function CalendarScreen() {
+  const [date, setDate] = useState(new Date());
   const [selectedDate, setSelectedDate] = useState(null);
 
   const daysInMonth = (year, month) => {
@@ -14,18 +16,18 @@ function CalendarScreen(){
   };
 
   const handleDateClick = (day) => {
-      setSelectedDate(day);
+    setSelectedDate(day);
   };
 
   const renderCalendar = () => {
     const year = date.getFullYear();
-    const month = date.toLocaleString('en-US', { month: 'long' });
+    const month = date.toLocaleString("en-US", { month: "long" });
     const totalDays = daysInMonth(year, date.getMonth());
     const startDay = startDayOfMonth(year, date.getMonth());
     const calendar = [];
 
     let dayCounter = 1;
-  
+
     for (let i = 0; i < 6; i++) {
       const week = [];
       for (let j = 0; j < 7; j++) {
@@ -34,12 +36,11 @@ function CalendarScreen(){
           week.push(<td key={`${i}${j}`}></td>);
         } else {
           week.push(
-            <td 
-              key={`${i}${j}`} 
+            <td
+              key={`${i}${j}`}
               // className="circle"
-              className={`circle ${selectedDate === dayCopy ? 'clicked' : ''}`}
+              className={`circle ${selectedDate === dayCopy ? "clicked" : ""}`}
               onClick={() => handleDateClick(dayCopy)}
-
             >
               {dayCounter}
             </td>
@@ -47,7 +48,11 @@ function CalendarScreen(){
           dayCounter++;
         }
       }
-      calendar.push(<tr id="wrapper" key={i}>{week}</tr>);
+      calendar.push(
+        <tr id="wrapper" key={i}>
+          {week}
+        </tr>
+      );
       if (dayCounter > totalDays) break;
     }
 
@@ -59,22 +64,33 @@ function CalendarScreen(){
     newDate.setMonth(newDate.getMonth() + increment);
     setDate(newDate);
     setSelectedDate(null); // 월 변경 시 선택된 날짜 초기화
-
   };
 
   const formattedDate = selectedDate
     ? `${date.getFullYear()}.${date.getMonth() + 1}.${selectedDate}`
     : null;
 
+  //페이지 이동
+  const history = useHistory();
+  const toTodo = () => {
+    history.push("/todo");
+  };
+
   return (
     <div className="container">
-      <h1 className="title">Calendar</h1>
-
+      <div className="titlecontainer">
+        <h1 className="title">Calendar</h1>
+        <button className="titlebutton" onClick={toTodo}>
+          <GrPowerCycle style={{ color: "#61ecff" }} />
+        </button>
+      </div>
       <div id="a">
-        <div id="month-year">{`${date.toLocaleString('en-US', { month: 'long' })} ${date.getFullYear()}`}</div>
+        <div id="month-year">{`${date.toLocaleString("en-US", {
+          month: "long",
+        })} ${date.getFullYear()}`}</div>
         <div id="month-changer">
-          <button onClick={() => changeMonth(-1)}>{'<'}</button>
-          <button onClick={() => changeMonth(1)}>{'>'}</button>
+          <button onClick={() => changeMonth(-1)}>{"<"}</button>
+          <button onClick={() => changeMonth(1)}>{">"}</button>
         </div>
       </div>
       <div className="calendar-table">
