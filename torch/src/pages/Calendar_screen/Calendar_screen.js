@@ -3,7 +3,7 @@ import "./Calendar_screen.css";
 import { GrPowerCycle } from "react-icons/gr";
 import { useHistory } from "react-router-dom";
 
-function CalendgiarScreen() {
+function CalendarScreen() {
   const [date, setDate] = useState(new Date());
   const [selectedDate, setSelectedDate] = useState(null);
   const [todoList, setTodoList] = useState([]);
