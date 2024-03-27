@@ -1,11 +1,30 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import "./Calendar_screen.css";
 import { GrPowerCycle } from "react-icons/gr";
 import { useHistory } from "react-router-dom";
 
-function CalendarScreen() {
+function CalendgiarScreen() {
   const [date, setDate] = useState(new Date());
   const [selectedDate, setSelectedDate] = useState(null);
+  const [todoList, setTodoList] = useState([]);
+
+    // 로컬 스토리지에서 데이터 불러오기
+  useEffect(() => {
+    const storedTodos = localStorage.getItem(`todos`);
+    console.log('Stored todos:', storedTodos);
+  
+    if (storedTodos) {
+      try {
+          const parsedTodos = JSON.parse(storedTodos);
+          setTodoList(parsedTodos);
+      } catch (error) {
+          console.error('Error parsing storedTodos:', error);
+          setTodoList([]);
+          }
+    } else {
+        setTodoList([]);
+    }
+  }, [selectedDate]);
 
   const daysInMonth = (year, month) => {
     return new Date(year, month + 1, 0).getDate();
@@ -17,6 +36,23 @@ function CalendarScreen() {
 
   const handleDateClick = (day) => {
     setSelectedDate(day);
+  };
+
+  // 선택한 날짜에 해당하는 할일 목록을 가져오는 함수
+  const getTodoList = () => {
+
+    const year = date.getFullYear();
+    const month = date.getMonth() + 1;
+    const selectedDateformat = `${year}-${month.toString().padStart(2, '0')}-${selectedDate.toString().padStart(2, '0')}`
+    //console.log(selectedDateformat);
+    const selectedTodo = todoList[selectedDateformat]; // 선택한 날짜에 해당하는 할일 목록
+    if (selectedTodo) {
+      return selectedTodo.map((todoItem) => (
+        <div key={todoItem.id}>{todoItem.task}</div>
+      ));
+    } else {
+      return <div>No tasks for this date</div>;
+    }
   };
 
   const renderCalendar = () => {
@@ -96,13 +132,13 @@ function CalendarScreen() {
       <div className="calendar-table">
         <div id="thead">
           <div id="day">
-            <div>Sun</div>
-            <div>Mon</div>
-            <div>Tue</div>
-            <div>Wed</div>
-            <div>Thu</div>
-            <div>Fri</div>
-            <div>Sat</div>
+            <div>SUN</div>
+            <div>MON</div>
+            <div>TUE</div>
+            <div>WED</div>
+            <div>THU</div>
+            <div>FRI</div>
+            <div>SAT</div>
           </div>
         </div>
         <div id="date">{renderCalendar()}</div>
@@ -111,6 +147,9 @@ function CalendarScreen() {
       {selectedDate && (
         <div id="selected-date">
           <p>{formattedDate}</p>
+          <div className="tasks-container">
+            {getTodoList()}
+          </div>
         </div>
       )}
     </div>

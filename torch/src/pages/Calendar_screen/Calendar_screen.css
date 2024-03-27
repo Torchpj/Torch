@@ -26,6 +26,7 @@ body {
 }
 
 #month-year {
+  font-size: 20px;
   display: inline-block;
 }
 
@@ -35,7 +36,6 @@ body {
 
 .calendar-table {
   display: table;
-  /* width: 100%; */
   border-collapse: seperate;
   border-spacing: 10px;
 }
@@ -43,15 +43,11 @@ body {
 #day {
   display: table-row;
 }
-/* #day > div, .circle {
-    padding: 10px;
-    text-align: center;
-    width: calc(100% / 7);
-  } */
+
 #day > div {
   display: table-cell;
-  /* border-bottom: 1px solid skyblue; */
-  padding: 8.5px;
+  font-size: 16px;
+  padding: 3px;
 }
 
 .circle {
@@ -59,11 +55,11 @@ body {
   width: 20px;
   height: 20px;
   border-radius: 50%;
-  font-size: 1em;
+  font-size: 1.3em;
   color: 61ECFF;
   border: 2px solid rgb(97, 236, 255);
   text-align: center;
-  padding: 10px;
+  padding: 7.5px;
 }
 .clicked {
   background-color: white;
