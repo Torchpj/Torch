@@ -7,19 +7,7 @@ function CalendarScreen(){
   const [todoList, setTodoList] = useState([]);
 
   // 로컬 스토리지에서 데이터 불러오기
-  // useEffect(() => {
-  //   //console.log('useEffect triggered with selectedDate:', selectedDate);
-
-  //     const storedTodos = localStorage.getItem(`todos-${selectedDate}`);
-  //     if (storedTodos) {
-  //         setTodoList(JSON.parse(storedTodos));
-  //     } else {
-  //         setTodoList([]);
-  //     }
-  // }, [selectedDate]);
-
   useEffect(() => {
-
     const storedTodos = localStorage.getItem(`todos`);
     console.log('Stored todos:', storedTodos);
 
@@ -115,15 +103,6 @@ function CalendarScreen(){
   const formattedDate = selectedDate
     ? `${date.getFullYear()}.${date.getMonth() + 1}.${selectedDate}`
     : null;
-
-
-  //       // 선택된 날짜의 할일 목록 중 task 문자열들만 필터링하여 출력
-  // const filteredTasks = selectedDate && todoList[`${date.getFullYear()}-${date.getMonth() + 1}-${selectedDate}`]
-  // ? todoList[`${date.getFullYear()}-${date.getMonth() + 1}-${selectedDate}`]
-  //   .filter(todo => typeof todo === 'object' && todo.task) // task 속성이 있는 객체만 필터링
-  //   .map(todo => todo.task) // task 문자열들만 추출
-  // : [];
-
         
   return (
     <div className="container">
@@ -157,7 +136,6 @@ function CalendarScreen(){
           <div className="tasks-container">
             {getTodoList()}
 
-            
           </div>
         </div>
       )}

@@ -2,9 +2,12 @@ import React, { useState, useEffect } from "react";
 import TodoList from "./Todolist";
 import AddTodo from "./Addtodo";
 import "./Todo_screen.css";
+import { GrPowerCycle } from "react-icons/gr";
+import { useHistory } from "react-router-dom"
 
 function TodoScreen() {
 
+  //현재 날짜 받아오기
   const getCurrentDate = () => {
     const now = new Date();
     const year = now.getFullYear();
@@ -13,21 +16,20 @@ function TodoScreen() {
     return `${year}-${month}-${day}`;
   };
 
-  // const [todos, setTodos] = useState({
-  //   [getCurrentDate()]: [], // 현재 날짜를 키로 하는 할일 목록 초기화
-  // });
   // 로컬 스토리지에서 데이터 불러오기
   const getStoredTodos = () => {
     const storedTodos = localStorage.getItem("todos");
     return storedTodos ? JSON.parse(storedTodos) : { [getCurrentDate()]: [] };
   };
 
-  const [todos, setTodos] = useState(getStoredTodos());
+  const history = useHistory();
 
   // 할일 목록이 변경될 때마다 로컬 스토리지에 저장
   useEffect(() => {
     setTodos(getStoredTodos());
   }, []);
+  
+  const [todos, setTodos] = useState(getStoredTodos());
 
   const handleAddTodo = (task) => {
     const dateKey = getCurrentDate();
@@ -45,12 +47,23 @@ function TodoScreen() {
     setTodos(newTodos);
   };
 
+  const toCalendar = () => {
+    history.push('/calendar');
+  }
+
+
   return (
-    <div>
-      <h1 className="title">To-do List</h1>
+    <div className="container">
+      <div className="titlecontainer">
+        <h1 className="title">To-do List</h1>
+        <button className="titlebutton" onClick={toCalendar}>
+          <GrPowerCycle style={{ color: "#61ecff" }} />
+        </button>
+      </div>
       <TodoList todos={todos[getCurrentDate()]} />
       <AddTodo onAdd={handleAddTodo} />
     </div>
+
   );
 }
 
