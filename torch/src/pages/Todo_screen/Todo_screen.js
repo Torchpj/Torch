@@ -55,7 +55,7 @@ function TodoScreen() {
       <div className="titlecontainer">
         <h1 className="title">To-do List</h1>
         <button className="titlebutton" onClick={toCalendar}>
-          <GrPowerCycle style={{ color: "#61ecff" }} />
+          <GrPowerCycle style={{ color: "#61ecff", display: "flex" }} />
         </button>
       </div>
       <div>{getCurrentDate()}</div>
