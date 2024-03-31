@@ -1,14 +1,52 @@
-body { background-color: black; }
-.torposition { display: flex; margin-left: 50%; margin-bottom: -15%; margin-top: 20%;}
-.lig { animation: 5s ease-in-out loadEffect1; display: flex; justify-content: center;}
-.tortext {color: #61ECFF; font-size: 50px; 
-    font-weight: bolder; margin-left: 30%; margin-top: -15%;}
+body {
+  background-color: black;
+}
+.torposition {
+  display: flex;
+  margin-left: 50%;
+  margin-bottom: -15%;
+  margin-top: 20%;
+}
+.lig {
+  animation: 5s ease-in-out loadEffect1;
+  display: flex;
+  justify-content: center;
+}
+.tortext {
+  color: #61ecff;
+  font-size: 50px;
+  font-weight: bolder;
+  margin-left: 30%;
+  margin-top: -15%;
+}
 
 @keyframes loadEffect1 {
-    0%{
-        opacity: 0;
-    }
-    100%{
-        opacity: 1;
-    }
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+/* 수직 스크롤바 스타일링 */
+/* 스크롤바 */
+::-webkit-scrollbar {
+  width: 7px;
+}
+
+/* 스크롤바 트랙 */
+::-webkit-scrollbar-track {
+  background: #000000;
+}
+
+/* 스크롤바 색상 */
+::-webkit-scrollbar-thumb {
+  background: #000000;
+  border: 1px solid #555;
+  border-radius: 5px;
+}
+
+/* 스크롤바 hover 상태 */
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
 }
