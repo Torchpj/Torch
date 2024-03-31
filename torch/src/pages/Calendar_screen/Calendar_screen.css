@@ -1,17 +1,12 @@
-.App {
-  text-align: center;
-}
-
 body {
   background-color: black;
 }
 
-/* Calendar.css */
 .container {
   max-width: 400px; /* 최대 너비 설정 */
   margin: 0 auto; /* 가운데 정렬 */
   background-color: black;
-  color: skyblue;
+  color: rgb(97, 236, 255);
 }
 
 .title {
@@ -23,15 +18,24 @@ body {
 #a {
   display: flex;
   justify-content: space-between;
+  align-items: center;
+  width: 100%;
 }
 
 #month-year {
   font-size: 20px;
-  display: inline-block;
+  margin-left: 20px;
 }
 
 #month-changer {
-  display: inline-block;
+  margin-right: 20px;
+}
+
+.arrow_button {
+  font-size: 20px;
+  color: rgb(97, 236, 255);
+  background-color: black;
+  border-style: none;
 }
 
 .calendar-table {
@@ -69,47 +73,20 @@ body {
 #wrapper {
   display: table-row;
   border-width: 90%;
-
-  /* mairgin: 10px; */
-  /* display: inline-block; */
-  /* justify-content: space-around; */
-
-  /* max-width: 1170px; */
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+#selected-date {
+  width: 100%;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+#formattedDate {
+  margin-left: 20px;
+  font-size: 20px;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+#tasks-container {
+  font-size: 15px;
+  margin-left: 20px;
 }
 
 .titlecontainer {

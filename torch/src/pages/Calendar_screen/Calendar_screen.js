@@ -1,9 +1,10 @@
 import React, { useState, useEffect } from "react";
 import "./Calendar_screen.css";
 import { GrPowerCycle } from "react-icons/gr";
+import { IoIosArrowBack, IoIosArrowForward } from "react-icons/io";
 import { useHistory } from "react-router-dom";
 
-function CalendarScreen() {
+function Calendar_screen() {
   const [date, setDate] = useState(new Date());
   const [selectedDate, setSelectedDate] = useState(null);
   const [todoList, setTodoList] = useState([]);
@@ -45,7 +46,6 @@ function CalendarScreen() {
     const selectedDateformat = `${year}-${month
       .toString()
       .padStart(2, "0")}-${selectedDate.toString().padStart(2, "0")}`;
-    //console.log(selectedDateformat);
     const selectedTodo = todoList[selectedDateformat]; // 선택한 날짜에 해당하는 할일 목록
     if (selectedTodo) {
       return selectedTodo.map((todoItem) => (
@@ -126,8 +126,12 @@ function CalendarScreen() {
           month: "long",
         })} ${date.getFullYear()}`}</div>
         <div id="month-changer">
-          <button onClick={() => changeMonth(-1)}>{"<"}</button>
-          <button onClick={() => changeMonth(1)}>{">"}</button>
+          <button className="arrow_button" onClick={() => changeMonth(-1)}>
+            <IoIosArrowBack />
+          </button>
+          <button className="arrow_button" onClick={() => changeMonth(1)}>
+            <IoIosArrowForward />
+          </button>
         </div>
       </div>
       <div className="calendar-table">
@@ -147,11 +151,11 @@ function CalendarScreen() {
 
       {selectedDate && (
         <div id="selected-date">
-          <p>{formattedDate}</p>
-          <div className="tasks-container">{getTodoList()}</div>
+          <p id="formattedDate">{formattedDate}</p>
+          <div id="tasks-container">{getTodoList()}</div>
         </div>
       )}
     </div>
   );
 }
-export default CalendarScreen;
+export default Calendar_screen;
