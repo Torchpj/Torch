@@ -3,10 +3,9 @@ import TodoList from "./Todolist";
 import AddTodo from "./Addtodo";
 import "./Todo_screen.css";
 import { GrPowerCycle } from "react-icons/gr";
-import { useHistory } from "react-router-dom"
+import { useHistory } from "react-router-dom";
 
 function TodoScreen() {
-
   //현재 날짜 받아오기
   const getCurrentDate = () => {
     const now = new Date();
@@ -28,7 +27,7 @@ function TodoScreen() {
   useEffect(() => {
     setTodos(getStoredTodos());
   }, []);
-  
+
   const [todos, setTodos] = useState(getStoredTodos());
 
   const handleAddTodo = (task) => {
@@ -48,9 +47,8 @@ function TodoScreen() {
   };
 
   const toCalendar = () => {
-    history.push('/calendar');
-  }
-
+    history.push("/calendar");
+  };
 
   return (
     <div className="container">
@@ -60,10 +58,12 @@ function TodoScreen() {
           <GrPowerCycle style={{ color: "#61ecff" }} />
         </button>
       </div>
-      <TodoList todos={todos[getCurrentDate()]} />
+      <div>{getCurrentDate()}</div>
+      <TodoList
+        todos={todos[getCurrentDate()] ? todos[getCurrentDate()] : []}
+      />
       <AddTodo onAdd={handleAddTodo} />
     </div>
-
   );
 }
 

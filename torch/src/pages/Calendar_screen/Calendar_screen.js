@@ -3,26 +3,26 @@ import "./Calendar_screen.css";
 import { GrPowerCycle } from "react-icons/gr";
 import { useHistory } from "react-router-dom";
 
-function CalendgiarScreen() {
+function CalendarScreen() {
   const [date, setDate] = useState(new Date());
   const [selectedDate, setSelectedDate] = useState(null);
   const [todoList, setTodoList] = useState([]);
 
-    // 로컬 스토리지에서 데이터 불러오기
+  // 로컬 스토리지에서 데이터 불러오기
   useEffect(() => {
     const storedTodos = localStorage.getItem(`todos`);
-    console.log('Stored todos:', storedTodos);
-  
+    console.log("Stored todos:", storedTodos);
+
     if (storedTodos) {
       try {
-          const parsedTodos = JSON.parse(storedTodos);
-          setTodoList(parsedTodos);
+        const parsedTodos = JSON.parse(storedTodos);
+        setTodoList(parsedTodos);
       } catch (error) {
-          console.error('Error parsing storedTodos:', error);
-          setTodoList([]);
-          }
-    } else {
+        console.error("Error parsing storedTodos:", error);
         setTodoList([]);
+      }
+    } else {
+      setTodoList([]);
     }
   }, [selectedDate]);
 
@@ -40,10 +40,11 @@ function CalendgiarScreen() {
 
   // 선택한 날짜에 해당하는 할일 목록을 가져오는 함수
   const getTodoList = () => {
-
     const year = date.getFullYear();
     const month = date.getMonth() + 1;
-    const selectedDateformat = `${year}-${month.toString().padStart(2, '0')}-${selectedDate.toString().padStart(2, '0')}`
+    const selectedDateformat = `${year}-${month
+      .toString()
+      .padStart(2, "0")}-${selectedDate.toString().padStart(2, "0")}`;
     //console.log(selectedDateformat);
     const selectedTodo = todoList[selectedDateformat]; // 선택한 날짜에 해당하는 할일 목록
     if (selectedTodo) {
@@ -147,9 +148,7 @@ function CalendgiarScreen() {
       {selectedDate && (
         <div id="selected-date">
           <p>{formattedDate}</p>
-          <div className="tasks-container">
-            {getTodoList()}
-          </div>
+          <div className="tasks-container">{getTodoList()}</div>
         </div>
       )}
     </div>
