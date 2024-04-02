@@ -20,10 +20,12 @@
   background: #171a1a;
   box-shadow: 8px 8px 16px #263140, -8px -8px 16px #394960;
   border-radius: 1e11px;
+  cursor: pointer;
 }
 .listtext {
   font-size: 24px;
   color: #61ecff;
+  cursor: pointer;
 }
 .list-container {
   display: flex;
@@ -83,6 +85,8 @@
   align-self: stretch;
   flex-grow: 1;
   z-index: 1;
+
+  cursor: pointer;
 }
 
 /*toggle switch*/
@@ -140,7 +144,7 @@
 }
 .modalwrap {
   width: 200px;
-  height: 250px;
+  height: 150px;
   border-radius: 15px;
   transform: translate(50%, 50%);
   background-color: #fff;
@@ -166,10 +170,13 @@
   list-style: none;
   list-style-type: none;
   padding-left: 0;
-  line-height: 250%;
+  line-height: 200%;
 }
 .mc {
   display: flex;
   flex-direction: column;
   align-items: center;
+}
+.cur {
+  cursor: pointer;
 }

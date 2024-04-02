@@ -2,21 +2,30 @@ import React from "react";
 import { IoClose } from "react-icons/io5";
 import "./Todo_screen.css";
 
-function Modal({ onClose }) {
+function Modal({ onClose, onEdit, onDelete }) {
   const handleClose = () => {
     onClose?.();
+  };
+  const handleEdit = () => {
+    onEdit?.();
+  };
+  const handleDelete = () => {
+    onDelete?.();
   };
   return (
     <div className="modalex">
       <div className="modalwrap">
-        <IoClose className="modalbutton" onClick={onClose} />
+        <IoClose className="modalbutton" onClick={handleClose} />
         <h2>Menu</h2>
         <hr />
         <div className="mc">
           <ul className="modalinside">
-            <li>Edit</li>
-            <li>Delete</li>
-            <li>Move to</li>
+            <li onClick={handleEdit} className="cur">
+              Edit
+            </li>
+            <li onClick={handleDelete} className="cur">
+              Delete
+            </li>
           </ul>
         </div>
       </div>

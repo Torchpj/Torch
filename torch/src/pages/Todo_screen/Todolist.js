@@ -5,8 +5,16 @@ import Modal from "./Modal";
 
 function TodoList({ todos }) {
   const [isOpen, setIsOpen] = useState(false);
-  const onClickModal = () => {
+  const [selectedTodo, setSelectedTodo] = useState(null);
+  const onClickModal = (todo) => {
+    setSelectedTodo(todo);
     setIsOpen(true);
+  };
+  const handleDeleteTodo = () => {
+    setIsOpen(false);
+  };
+  const handleEditTodo = () => {
+    setIsOpen(false);
   };
   return (
     <ul className="list-container">
@@ -19,9 +27,9 @@ function TodoList({ todos }) {
             {isOpen && (
               <Modal
                 open={isOpen}
-                onClose={() => {
-                  setIsOpen(false);
-                }}
+                onClose={() => setIsOpen(false)}
+                onDelete={() => handleDeleteTodo(selectedTodo.id)}
+                onEdit={handleEditTodo}
               />
             )}
             <Toggle completed={todo.completed} />
